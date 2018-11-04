@@ -5,6 +5,8 @@ const app = express();                      // create express app
 const hbs = require("hbs");                 // hbs
 const fs =  require('fs');
 
+const port  = process.env.PORT || 3000; // set server independent port 
+
 // use middlewares 
 // __dirname = current project dir 
 app.set('view engine', 'hbs');                       // set templating engine HBS
@@ -53,7 +55,7 @@ app.get("/about", (req,res)=> {
 });
 
 var option = () =>{
-    console.log("server is up on port 3000");
+    console.log(`server is up on port ${port}`);
 }
 // listen request on specific port
-app.listen(3000, option); 
+app.listen(port, option); 

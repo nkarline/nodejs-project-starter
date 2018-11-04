@@ -1,2 +1,5 @@
 /node_modules
 server-log.txt
+notes-store.json
+server.log
+yarn.lock
