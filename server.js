@@ -30,16 +30,17 @@ app.use((req, res, next) => {
 
 });
 
-// maintenance page
-app.use((req,res,next)=>{
-    res.render('maintenance.hbs');
-});
+// maintenance page - uncomment to put under maintenance
+// app.use((req,res,next)=>{
+//     res.render('maintenance.hbs');
+// });
+
 // Need to put static files below maintenance page otherwise static files will be accessible 
 app.use(express.static(__dirname + '/public'));      // express.static enable us to request any file directly in public folder .
 
 // create routes
 app.get("/", (req,res)=> {
-    res.send('<h1> Home page request</h1>'); // header content-type = text/html
+    res.send('<h1>Home page request</h1>'); // header content-type = text/html
 });
 app.get("/bad", (req,res)=> {
     const obj = {status: 'bad request'}
@@ -59,3 +60,9 @@ var option = () =>{
 }
 // listen request on specific port
 app.listen(port, option); 
+
+
+// Mongo  database
+// const {startMongo} = require('./database/connect.-mongodb');
+// startMongo();
+module.exports.app = app;
